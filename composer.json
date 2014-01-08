@@ -1,0 +1,27 @@
+{
+    "name": "pekkis/clock",
+    "type": "library",
+    "description": "A very simple clock abstraction",
+    "keywords": ["clock", "time"],
+    "homepage": "http://github.com/pekkis/clock",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Mikko Forsström",
+            "email": "pekkisx@gmail.com",
+            "homepage": "http://diktaattoriporssi.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-0": {
+            "Pekkis\\Clock": "library/"
+        }
+    },
+    "minimum-stability": "stable"
+}
