@@ -15,6 +15,8 @@ class FixedClock implements Clock
      */
     private $time;
 
+    private $timezone;
+
     /**
      * @param mixed $time Unix timestamp or DateTime
      */
@@ -29,7 +31,10 @@ class FixedClock implements Clock
     public function setTime($time)
     {
         if ($time instanceof DateTime) {
+            $this->timezone = $time->getTimezone();
             $time = $time->format('U');
+        } else {
+            $this->timezone = new DateTimeZone(date_default_timezone_get());
         }
         $this->time = $time;
     }
@@ -43,15 +48,12 @@ class FixedClock implements Clock
     }
 
     /**
-     * @param string $time
-     * @param  DateTimeZone $timezone
      * @return DateTime
      */
-    public function getDateTime($time = null, DateTimeZone $timezone = null)
+    public function getDateTime()
     {
-        if (!$time) {
-            return DateTime::createFromFormat('U', $this->time);
-        }
-        return new DateTime($time, $timezone);
+        $now = DateTime::createFromFormat('U', $this->time);
+        $now->setTimezone($this->timezone);
+        return $now;
     }
 }
