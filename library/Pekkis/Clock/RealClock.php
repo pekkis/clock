@@ -11,6 +11,16 @@ use DateTimeZone;
 class RealClock implements Clock
 {
     /**
+     * @var DateTimeZone
+     */
+    private $timezone;
+
+    public function __construct()
+    {
+        $this->timezone = new DateTimeZone('Europe/Helsinki');
+    }
+
+    /**
      * @return int
      */
     public function getTime()
@@ -19,12 +29,12 @@ class RealClock implements Clock
     }
 
     /**
-     * @param string $time
-     * @param  DateTimeZone $timezone
      * @return DateTime
      */
-    public function getDateTime($time = null, DateTimeZone $timezone = null)
+    public function getDateTime()
     {
-        return new DateTime($time, $timezone);
+        $now = DateTime::createFromFormat('U', $this->getTime());
+        $now->setTimezone($this->timezone);
+        return $now;
     }
 }

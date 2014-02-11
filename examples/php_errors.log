@@ -1,0 +1,3 @@
+[11-Feb-2014 23:08:47 Europe/Helsinki] PHP Fatal error:  Class 'Pekkis\Clock\ClockProvider' not found in /wwwroot/pekkis-clock/examples/example.php on line 11
+[11-Feb-2014 23:08:47 Europe/Helsinki] PHP Stack trace:
+[11-Feb-2014 23:08:47 Europe/Helsinki] PHP   1. {main}() /wwwroot/pekkis-clock/examples/example.php:0

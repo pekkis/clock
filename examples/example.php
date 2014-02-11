@@ -1,12 +1,3 @@
-Pekkis Clock
-=============
-
-A really simple clock abstraction library for PHP.
-
-Usage
-------
-
-```php
 <?php
 
 namespace Pekkis\Clock\Example;
@@ -29,4 +20,3 @@ var_dump($time);
 // Get time as datetime object
 $time = ClockProvider::getClock()->getDateTime();
 var_dump($time->format('Y-m-d H:i:s'));
-```
