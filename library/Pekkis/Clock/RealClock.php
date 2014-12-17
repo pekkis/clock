@@ -34,7 +34,7 @@ class RealClock implements Clock
     public function getDateTime()
     {
         $now = DateTime::createFromFormat('U', $this->getTime());
-        $now->setTimezone($this->timezone);
+        $now->setTimezone(ClockProvider::getTimezone());
         return $now;
     }
 }
